@@ -1,4 +1,4 @@
-# LaravelPrometheusExporter
+# Laravel Prometheus Exporter
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -12,7 +12,7 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ```bash
-composer require vntrungld/laravelprometheusexporter
+composer require vntrungld/prometheus-exporter
 ```
 
 ## Usage
@@ -37,21 +37,21 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [author name][link-author]
+- [Lam Duc Trung][https://github.com/vntrungld]
 - [All Contributors][link-contributors]
 
 ## License
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/vntrungld/laravelprometheusexporter.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/vntrungld/laravelprometheusexporter.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/vntrungld/laravelprometheusexporter/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/vntrungld/prometheus-exporter.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/vntrungld/prometheus-exporter.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/vntrungld/prometheus-exporter/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/vntrungld/laravelprometheusexporter
-[link-downloads]: https://packagist.org/packages/vntrungld/laravelprometheusexporter
-[link-travis]: https://travis-ci.org/vntrungld/laravelprometheusexporter
+[link-packagist]: https://packagist.org/packages/vntrungld/prometheus-exporter
+[link-downloads]: https://packagist.org/packages/vntrungld/prometheus-exporter
+[link-travis]: https://travis-ci.org/vntrungld/prometheus-exporter
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/vntrungld
 [link-contributors]: ../../contributors
