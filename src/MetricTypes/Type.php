@@ -31,6 +31,11 @@ abstract class Type
     protected array $labels = [];
 
     /**
+     * @var array
+     */
+    protected array $values = [];
+
+    /**
      * Set the namespace for the metric
      *
      * @param $namespace
