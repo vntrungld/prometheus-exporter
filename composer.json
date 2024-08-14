@@ -15,6 +15,7 @@
         "Prometheus Exporter"
     ],
     "require": {
+	"laravel/horizon": "~3|~4|~5",
         "illuminate/support": "~6|~7|~8|~9|~10",
         "promphp/prometheus_client_php": "^2.11"
     },

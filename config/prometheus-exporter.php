@@ -4,15 +4,6 @@ return [
     'namespace' => 'laravel',
     'path' => 'metrics',
     'collectors' => [
-        // Horizon
-        \Vntrungld\PrometheusExporter\Collector\Horizon\CurrentMasterSupervisorCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\CurrentProcessesPerQueueCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\CurrentWorkloadCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\FailedJobsPerHourCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\HorizonStatusCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\JobsPerMinuteCollector::class,
-        \Vntrungld\PrometheusExporter\Collector\Horizon\RecentJobsCollector::class,
-
         // PHP-FPM
         \Vntrungld\PrometheusExporter\Collector\PhpFpm\AcceptedConnectionsCollector::class,
         \Vntrungld\PrometheusExporter\Collector\PhpFpm\ActiveProcessesCollector::class,
