@@ -1,6 +1,6 @@
 <?php
 
-namespace Vntrungld\PrometheusExporter\Collector;
+namespace Vntrungld\PrometheusExporter\Collectors;
 
 use Vntrungld\PrometheusExporter\Prometheus;
 
