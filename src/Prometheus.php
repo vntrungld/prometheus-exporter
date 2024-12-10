@@ -29,6 +29,12 @@ class Prometheus
         $this->namespace = config('prometheus-exporter.namespace');
     }
 
+    /**
+     * Add a counter
+     *
+     * @param $name
+     * @return Counter
+     */
     public function addCounter($name): Counter
     {
         $counter = new Counter;
@@ -40,6 +46,12 @@ class Prometheus
         return $counter;
     }
 
+    /**
+     * Add a gauge
+     *
+     * @param $name
+     * @return Gauge
+     */
     public function addGauge($name): Gauge
     {
         $gauge = new Gauge;
@@ -51,6 +63,12 @@ class Prometheus
         return $gauge;
     }
 
+    /**
+     * Add a histogram
+     *
+     * @param $name
+     * @return Histogram
+     */
     public function addHistogram($name): Histogram
     {
         $histogram = new Histogram;
@@ -62,6 +80,12 @@ class Prometheus
         return $histogram;
     }
 
+    /**
+     * Add a summary
+     *
+     * @param $name
+     * @return Summary
+     */
     public function addSummary($name): Summary
     {
         $summary = new Summary;
@@ -81,10 +105,19 @@ class Prometheus
      */
     public function render()
     {
-        $default_collector_classes = config('prometheus-exporter.collectors');
+        $tier_name = config('prometheus-exporter.tier');
+        $tier_config = config('prometheus-exporter.tiers.' . $tier_name);
+        $collector_sets = array_get($tier_config, 'sets', []);
+        $collectors = array_get($tier_config, 'collectors', []);
 
-        foreach ($default_collector_classes as $collector_class) {
-            (new $collector_class)->register($this);
+        foreach ($collector_sets as $collector_set) {
+            $collectors = array_merge($collectors, (new $collector_set)->collectors());
+        }
+        
+        $collectors = array_unique($collectors);
+
+        foreach ($collectors as $collector) {
+            (new $collector)->register($this);
         }
 
         return app(RenderCollectors::class)($this->collectors);

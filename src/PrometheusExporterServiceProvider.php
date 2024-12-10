@@ -15,10 +15,9 @@ class PrometheusExporterServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'vntrungld');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'vntrungld');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        if (config('prometheus-exporter.enabled')) {
+            $this->loadRoutesFrom(__DIR__.'/routes.php');
+        }
 
         $this->app->bind(CollectorRegistry::class, function () {
             return new CollectorRegistry(new InMemory(), false);
@@ -61,18 +60,5 @@ class PrometheusExporterServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/prometheus-exporter.php' => config_path('prometheus-exporter.php'),
         ], 'prometheus-exporter.config');
-
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/vntrungld'),
-        ], 'prometheus-exporter.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/vntrungld'),
-        ], 'prometheus-exporter.assets');*/
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }
