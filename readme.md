@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
 
 This package is a simple Prometheus exporter for Laravel.
 
@@ -18,6 +17,16 @@ composer require vntrungld/prometheus-exporter
 ```
 
 ## Usage
+1. Export config
+```
+php artisan vendor:publish --tag prometheus-exporter.config
+```
+2. Edit config for your needs
+3. Access metrics and get results
+
+## First Party Collectors
+1. [Horizon Collector](https://github.com/vntrungld/prometheus-exporter-horizon-collector)
+2. [PHP-FPM Collector](https://github.com/vntrungld/prometheus-exporter-php-fpm-collector)
 
 ## Change log
 
@@ -46,11 +55,9 @@ license. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/vntrungld/prometheus-exporter.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/vntrungld/prometheus-exporter.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/vntrungld/prometheus-exporter/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
 [link-packagist]: https://packagist.org/packages/vntrungld/prometheus-exporter
 [link-downloads]: https://packagist.org/packages/vntrungld/prometheus-exporter
-[link-travis]: https://travis-ci.org/vntrungld/prometheus-exporter
 [link-author]: https://github.com/vntrungld
 [link-contributors]: ../../contributors
