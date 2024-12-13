@@ -113,11 +113,11 @@ class Prometheus
         foreach ($collector_sets as $collector_set) {
             $collectors = array_merge($collectors, (new $collector_set)->collectors());
         }
-        
+
         $collectors = array_unique($collectors);
 
         foreach ($collectors as $collector) {
-            (new $collector)->register($this);
+            app($collector)->register($this);
         }
 
         return app(RenderCollectors::class)($this->collectors);
