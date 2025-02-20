@@ -15,7 +15,7 @@
         "Prometheus Exporter"
     ],
     "require": {
-        "illuminate/support": "~6|~7|~8|~9|~10",
+        "illuminate/support": "~6|~7|~8|~9|~10|~11",
         "promphp/prometheus_client_php": "^2.11"
     },
     "require-dev": {
