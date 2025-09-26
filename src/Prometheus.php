@@ -106,9 +106,8 @@ class Prometheus
     public function render()
     {
         $tier_name = config('prometheus-exporter.tier');
-        $tier_config = config('prometheus-exporter.tiers.' . $tier_name);
-        $collector_sets = array_get($tier_config, 'sets', []);
-        $collectors = array_get($tier_config, 'collectors', []);
+        $collectors = $this->getCollectors($tier_name);
+        $collector_sets = $this->getCollectorSet($tier_name);
 
         foreach ($collector_sets as $collector_set) {
             $collectors = array_merge($collectors, (new $collector_set)->collectors());
@@ -121,5 +120,39 @@ class Prometheus
         }
 
         return app(RenderCollectors::class)($this->collectors);
+    }
+
+    /**
+     * Get collectors
+     *
+     * @param $tier_name
+     * @return array|mixed
+     */
+    public function getCollectorSet($tier_name)
+    {
+        $tier_config = config('prometheus-exporter.tiers.' . $tier_name, []);
+
+        if (isset($tier_config['sets'])) {
+            return $tier_config['sets'] ?? [];
+        }
+
+        return [];
+    }
+
+    /**
+     * Get collector set
+     *
+     * @param $tier_name
+     * @return array|mixed
+     */
+    public function getCollectors($tier_name)
+    {
+        $tier_config = config('prometheus-exporter.tiers.' . $tier_name, []);
+
+        if (isset($tier_config['collectors'])) {
+            return $tier_config['collectors'] ?? [];
+        }
+
+        return [];
     }
 }
