@@ -2,9 +2,6 @@
 
 namespace Vntrungld\PrometheusExporter\Controllers;
 
-
-use Laravel\Horizon\Contracts\MasterSupervisorRepository;
-use Laravel\Horizon\Contracts\WorkloadRepository;
 use Prometheus\RenderTextFormat;
 use Vntrungld\PrometheusExporter\Prometheus;
 
